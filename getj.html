@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="loadFile()">Press this button</button>
+   <p id="demo"></p>
+
+   <script>
+      function loadFile() {
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("demo").innerHTML =
+               "Data: " + this.responseText;
+            }
+         };
+         xhttp.open("GET", "demo.txt", true);
+         xhttp.send();
+      }
+   </script>
+</body>
+</html>

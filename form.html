@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<title>ContactUs</title>
+</head>
+
+<body>
+	<div class="contact bg-primary" id="ContactUs">
+		<h1>Contact Us</h1>
+		<form action="#">
+			<div class="form-shape">
+				<label for="query">
+					Type of Query
+				</label>
+				<select class="text-danger" name="myQuery" id="query">
+					<option value="sel" selected>
+						Select
+					</option>
+					<option value="ord">
+						Order related Issues
+					</option>
+					<option value="Site">
+						Site related Issues
+					</option>
+					<option value="fed">
+						Complaint related Issues
+					</option>
+					<option value="others">
+						Others
+					</option>
+				</select>
+			</div>
+			<div class="form-shape">
+				<label for="name">Name</label>
+				<input type="text" name="myName"
+					id="name"
+					placeholder="Enter your Name" style="color: black">
+			</div>
+			<div class="form-shape">
+				<label for="email">Email-Id</label>
+				<input type="email" name="myEmail"
+					id="email"
+					placeholder="Enter your email" style="color: black">
+			</div>
+			<div class="form-shape">
+				<label for="pho">Phone Number</label>
+				<input type="phone" name="myPhone"
+					id="pho"
+					placeholder="Enter your Phone no" style="color: black">
+			</div>
+			<div id="radio">
+				Are you a member of OnlneFoodShop:
+				Yes <input type="radio" name="eligible">
+				No <input type="radio" name="eligible">
+			</div>
+			<div class="form-shape">
+				<label for="message">
+					Ellaborate your query
+				</label>
+				<textarea name="mesg" id="message"
+					cols="30" rows="10" style="color: black">
+				</textarea>
+			</div>
+			<input type="button" class="btn btn-success" value="Submit" onclick="saveFormData()"> 
+			<input type="button" class="btn btn-success" value="Reset">
+		</form>
+	</div>
+
+<script>
+    function saveFormData() {
+    const formData = {
+      myQuery: document.getElementById("query").value,
+      myName: document.getElementById("name").value,
+      myEmail: document.getElementById("email").value,
+      myPhone: document.getElementById("pho").value,
+      eligible: document.querySelector('input[name="eligible"]:checked').value,
+      mesg: document.getElementById("message").value,
+    };
+    
+    localStorage.setItem("formData", JSON.stringify(formData));
+    
+    // Redirect to the display page
+    window.location.href = "display.html";
+  }
+</script>
+</body>
+
+</html>
